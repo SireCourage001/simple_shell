@@ -1,0 +1,160 @@
+.TH SHELL 1 "September 2023" GNU "Shell man page"
+.SH NAME
+.B hsh
+-	command line interpreter (shell)
+.SH SYNOPSIS
+The shell is executed by typing ./hsh
+.br
+Then it will be ready for inputs like: commands (args)(options)
+.SH DESCRIPTION
+In this simple shell project, I and my partner build a real shell that behaves like a real one. This version does not support arguments thrown to it yet.
+.br
+.SH OPTIONS
+There are no options for the moment.
+.B What hsh can do :
+.br
+- Executes any command with its arguments
+.br
+- Executes built-in commands
+.br
+- Handle pipes
+.br
+- Handle the command separator ;
+.br
+- Handle && and || logical operators
+.br
+- handle variable replacement
+.br
+- handle the $? variable
+.br
+- handle the $$ variable
+.SH ENVIRONMENT
+- PATH
+.br
+- $?
+.br
+- $$
+.SH BUGS
+There is no known bugs at the moment.
+.SH BUILT-IN FUNCTIONS
+Those are the available built-in functions :
+.br
+ - exit : exits the shell
+.br
+ - cd : Change Directory
+.br
+ - help : Displays the help page
+.br
+ - history : Displays history of commands used
+.br
+ - alias : Put an alias for a command
+.br
+ - env : Display the environment variables
+ .SH EXIT STATUS
+The exit value depends on how a function has terminated. Every error is identified by a certain value. On success it will always return 0.
+.SH RETURN VALUE
+Return 0 on success, otherwise it will return the exit value.
+.SH ENVIRONMENT
+- PATH
+.br
+- $?
+.br
+- $$
+.SH BUGS
+There is no known bugs at the moment.
+.SH EXAMPLE
+.B Two ways to execute our shell :
+.br
+.B The intercative mode :
+.br
+ $ ./hsh
+.br
+ #cisfun$ /bin/ls
+.br
+ hsh main.c shell.c
+.br
+ #cisfun$ exit
+.br
+ $
+.br
+.B The non-interactive mode :
+.br
+ $ echo "/bin/ls" | ./hsh
+.br
+.B Variable Replacement
+.in +2n
+.B Shellby\fR inerprets the \fI$\fR character for variable replacement:
+
+.RS
+.B $ENV_VARIABLE\fR	\fIENV_VARIABLE\fR is subsituted with its value.
+.RE
+
+.RS
+.B $?\fR			\fI?\fR is substituted with the return value of the last program executed.
+.RE
+
+.RS
+.B $$\FR			The second \fI$\fR is substituted with the current process ID.
+.RE
+
+.B Comments
+.in +2n
+.B Shellby\fR ignores all words and characters preceeded by a \fI#\fR character on a line.
+.in
+
+.B Operators
+.in +2n
+
+.RS
+.B ;\fR - Command separator
+.RS
+Commands separated by a \fI;\fR are executed sequentially.
+.RE
+
+.B &&\fR - AND logical operator
+.RS
+.I command1\fR && \fIcommand2\fR: \fIcommand2\fR is executed if, and only if, \fIcommand1\fR returns an exit status of zero.
+.RE
+
+.B ||\fR - OR logical operator
+.RS
+.I command1\fR || \fIcommand2\fR: \fIcommand2\fR is executed if, and only if, \fIcommand1\fR returns a non-zero exit status.
+.RE
+
+The operators \fI&&\fR and \fI||\fR have equal precedence, followed by \fI;\fR.
+.RE
+
+.B Shellby Builtin Commands
+.in +2n
+
+.RS
+.B cd
+.RS
+Usage: .B cd [DIRECTORY]
+
+Changes the current directory of the process to \fBDIRECTORY\fR.
+
+If no argument is given, the command is interpreted as \fBcd $HOME\fR.
+
+If the argument \fB-\fR is given, the command is interpreted as \fBcd $OLDPWD\fR.
+
+The environment variables \fBPWD\fR and \fBOLDPWD\fR are updated after a change of directory.
+.RE
+
+.B alias
+.RS
+Usage: \fBalias [NAME[='VALUE'] ...]\fR
+
+Handles aliases.
+
+.I alias\fR: Prints a list of all aliases, one per line, in the form \fINAME='VALUE'\fR.
+
+.I alias NAME [NAME2 ...]\fR: Prints the aliases \fINAME\fR, \fINAME2\fR, etc. one per line, in the form \fINAME='VALUE'\fR.
+
+.I alias NAME='VALUE' [...]\fR: Defines an alias for each \fINAME\fR whose \fIVALUE\fR is given.
+If \fIname\fR is already an alias, its value is replaced with \fIVALUE\fR.
+.RE
+ hsh main.c shell.c
+.SH AUTHORS
+Mishak Mosimabale & Courage Ekpo
+
