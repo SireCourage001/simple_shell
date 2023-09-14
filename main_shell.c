@@ -20,7 +20,7 @@ void system_info_func(char *prompt, core_prog_data *data)
 {
 	int error_code = 0, string_len = 0;
 
-	while (++(data->exec_counter)) 
+	while (++(data->exec_counter))
 	{
 		_print(prompt);
 		error_code = string_len = _togetline(data);
