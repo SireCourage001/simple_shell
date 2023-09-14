@@ -136,6 +136,14 @@ void expand_variables(core_prog_data *data)
 	}
 }
 
+/**
+  * buffer_add - executable function that adds buffer
+  *
+  * @buffer: buffer
+  * @str_tobe_added: the string buffer to be included
+  * Return: returns a buffere on success or other number declared
+  */
+
 int buffer_add(char *buffer, char *str_tobe_added)
 {
 	int length_of_str, i;

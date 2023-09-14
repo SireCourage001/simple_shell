@@ -65,7 +65,7 @@ int func_toprint_alias(core_prog_data *data, char *alias)
 }
 
 /**
- * set_alias - add, or override alias
+ * main_set_alias - add, or override alias
  * @alias_string: alias to be seted in the form (name='value')
  * @data: struct for the program's data
  * Return: zero if sucess, or other number if its declared in the arguments

@@ -45,7 +45,7 @@ int check_logic_ops(char *array_commands[], int i, char array_operators[])
 }
 
 /**
-* _getline - read one line from the prompt.
+* _togetline - read one line from the prompt.
 * @data: struct for the program's data
 *
 * Return: reading counting bytes.

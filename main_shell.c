@@ -1,7 +1,7 @@
 #include "shell.h"
 
 /**
- * handle_ctrl_c - print the prompt in a new line
+ * ctrl_plus_c_handler - print the prompt in a new line
  * when the signal SIGINT (ctrl + c) is send to the program
  * @UNUSED: option of the prototype
  */
@@ -12,7 +12,7 @@ void ctrl_plus_c_handler(int opr UNUSED)
 }
 
 /**
- * sisifo - its a infinite loop that shows the prompt
+ * system_info_func - its a infinite loop that shows the prompt
  * @prompt: prompt to be printed
  * @data: its a infinite loop that shows the prompt
  */
@@ -47,7 +47,7 @@ void system_info_func(char *prompt, core_prog_data *data)
 }
 
 /**
- * inicialize_data - inicialize the struct with the info of the program
+ * init_data_func - inicialize the struct with the info of the program
  * @data: pointer to the structure of data
  * @argv: array of arguments pased to the program execution
  * @env: environ pased to the program execution
