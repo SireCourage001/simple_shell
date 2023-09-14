@@ -32,7 +32,7 @@ int builtins_list(core_prog_data *data)
 /**
  * builtin_alias - add, remove or show aliases
  * @data: struct for the program's data
- * Return: zero if success, or other number if its declared in the arguments
+ * Return: zero if sucess, or other number if its declared in the arguments
  */
 int builtin_alias(core_prog_data *data)
 {
@@ -56,7 +56,7 @@ int builtin_alias(core_prog_data *data)
  * set_working_directory - set the work directory
  * @data: struct for the program's data
  * @new_dir: path to be set as work directory
- * Return: zero if success, or other number if its declared in the arguments
+ * Return: zero if sucess, or other number if its declared in the arguments
  */
 int set_working_directory(core_prog_data *data, char *new_dir)
 {
@@ -82,7 +82,7 @@ int set_working_directory(core_prog_data *data, char *new_dir)
 /**
  * builtin_helper - shows the environment where the shell runs
  * @data: struct for the program's data
- * Return: zero if success, or other number if its declared in the arguments
+ * Return: zero if sucess, or other number if its declared in the arguments
  */
 int builtin_helper(core_prog_data *data)
 {

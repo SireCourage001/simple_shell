@@ -1,13 +1,14 @@
 #include "shell.h"
 
 /**
- *str_reversal -  function to reverses a string.
+ * str_reversal -  function to reverses a string.
  *
  * @string: pointer to string.
  * Return: void.
  */
 void str_reversal(char *string)
 {
+
 	int i = 0, length = get_str_length(string) - 1;
 	char hold;
 
@@ -20,12 +21,12 @@ void str_reversal(char *string)
 }
 
 /**
- ** str_comparingfunc - Compare two strings
-  * @string1: String one, or the shorter
-  * @string2: String two, or the longer
-  * @number: number of characters to be compared, 0 if infinite
-  * Return: 1 if the strings are equals,0 if the strings are different
-  */
+ * str_comparingfunc - Compare two strings
+ * @string1: String one, or the shorter
+ * @string2: String two, or the longer
+ * @number: number of characters to be compared, 0 if infinite
+ * Return: 1 if the strings are equals,0 if the strings are different
+ */
 int str_comparingfunc(char *string1, char *string2, int number)
 {
 	int main_loop;
@@ -52,7 +53,7 @@ int str_comparingfunc(char *string1, char *string2, int number)
 		for (main_loop = 0; main_loop < number; main_loop++)
 		{
 			if (string1[main_loop] != string2[main_loop])
-				return (0);
+			return (0);
 		}
 		return (1);
 	}
@@ -90,7 +91,7 @@ char *str_duplicate(char *string)
 		return (NULL);
 
 	length = get_str_length(string) + 1;
-	
+
 	result = malloc(sizeof(char) * length);
 
 	if (result == NULL)
@@ -136,24 +137,17 @@ char *str_concator(char *string1, char *string2)
 	}
 
 	/* copy of string1 */
-		for (length1 = 0; string1[length1] != '\0'; length1++)
-			result[length1] = string1[length1];
-		free(string1);
+	for (length1 = 0; string1[length1] != '\0'; length1++)
+		result[length1] = string1[length1];
+	free(string1);
 
-		/* copy of string2 */
-			for (length2 = 0; string2[length2] != '\0'; length2++)
-			{
-				result[length1] = string2[length2];
-				length1++;
-			}
+	/* copy of string2 */
+	for (length2 = 0; string2[length2] != '\0'; length2++)
+	{
+		result[length1] = string2[length2];
+		length1++;
+	}
 
-			result[length1] = '\0';
-			return (result);
+	result[length1] = '\0';
+	return (result);
 }
-
-
-
-
-
- 
- 

@@ -4,7 +4,7 @@
  * main_get_alias - Add, remove or show aliases.
  * @data: Struct for the program's data.
  * @name: Name of the requested alias.
- * Return: zero if success, or other number if its declared in the arguments
+ * Return: zero if sucess, or other number if its declared in the arguments
  */
 char *main_get_alias(core_prog_data *data, char *name)
 {
@@ -31,7 +31,7 @@ char *main_get_alias(core_prog_data *data, char *name)
  * func_toprint_alias - add, remove, show aliases
  * @data: struct of the data
  * @alias: name of the alias
- * Return: zero if success, or other number if its declared in the arguments
+ * Return: zero if sucess, or other number if its declared in the arguments
  */
 int func_toprint_alias(core_prog_data *data, char *alias)
 {
@@ -66,9 +66,9 @@ int func_toprint_alias(core_prog_data *data, char *alias)
 
 /**
  * set_alias - add, or override alias
- * @alias_string: alias to be set in the form (name='value')
+ * @alias_string: alias to be seted in the form (name='value')
  * @data: struct for the program's data
- * Return: zero if success, or other number if its declared in the arguments
+ * Return: zero if sucess, or other number if its declared in the arguments
  */
 int main_set_alias(char *alias_string, core_prog_data *data)
 {

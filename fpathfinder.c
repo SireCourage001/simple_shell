@@ -1,11 +1,12 @@
 #include "shell.h"
 
 /**
- * check_file - checks if exists a file, if it is not a directory and
- * if it has execution permissions for permissions.
+ * check_file - checks if exists a file, if it is not a dairectory and
+ * if it has excecution permisions for permisions.
  * @full_path: pointer to the full file name
  * Return: 0 on success, or error code if it exists.
  */
+
 int check_file(char *full_path)
 {
 	struct stat sb;
@@ -23,7 +24,6 @@ int check_file(char *full_path)
 	return (127);
 }
 
-
 int check_file(char *full_path);
 
 /**
@@ -39,13 +39,11 @@ int find_program(core_prog_data *data)
 
 	if (!data->command_name)
 		return (2);
-	if (data->command_name[0] == '/' ||
-data->command_name[0] == '.')
-	return (check_file(data->command_name));
+	if (data->command_name[0] == '/' || data->command_name[0] == '.')
+		return (check_file(data->command_name));
 
 	free(data->tokens[0]);
-	data->tokens[0] = str_concator(str_duplicate("/"),
-data->command_name);
+	data->tokens[0] = str_concator(str_duplicate("/"), data->command_name);
 	if (!data->tokens[0])
 		return (2);
 	directories = tokenize_path(data);
@@ -64,7 +62,7 @@ data->command_name);
 			free(data->tokens[0]);
 			data->tokens[0] = str_duplicate(directories[i]);
 			free_array_of_pointers(directories);
-		       return (ret_code);
+			return (ret_code);
 		}
 	}
 	free(data->tokens[0]);
@@ -99,6 +97,7 @@ char **tokenize_path(core_prog_data *data)
 			counter_directories++;
 	}
 	tokens = malloc(sizeof(char *) * counter_directories);
+
 	i = 0;
 	tokens[i] = str_duplicate(_strtok(PATH, ":"));
 	while (tokens[i++])

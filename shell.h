@@ -13,18 +13,18 @@
 #include <sys/types.h>
 #include <errno.h>
 #include <stddef.h>
-#include <fontl.h>
+#include <fcntl.h>
 
 /**
- * struct info - Struct for the program's data
- * @program_name: The name of the executable,
- * @input_line: Pointer to the input read for _getline,
- * @command_name: Pointer to the first command typed by the user,
- * @exec_counter: Number of executed commands,
- * @file_descriptor: File descriptor to the input of commands,
- * @tokens: Pointer to array of tokenized input,
- * @env: Copy of the environ,
- * @alias_list: Array of pointers with aliases.
+ * struct info- struct for the program's data
+ * @program_name: the name of the executable
+ * @input_line: pointer to the input read for _getline
+ * @command_name: pointer to the first command typed by the user
+ * @exec_counter: number of excecuted comands
+ * @file_descriptor: file descriptor to the input of commands
+ * @tokens: pointer to array of tokenized input
+ * @env: copy of the environ
+ * @alias_list: array of pointers with aliases.
  */
 typedef struct info
 {
@@ -38,12 +38,13 @@ typedef struct info
 	char **alias_list;
 } core_prog_data;
 
-int character_counter (char *string, char *character);
+int character_counter(char *string, char *character);
 int func_toprint_alias(core_prog_data *data, char *alias);
 char *main_get_alias(core_prog_data *data, char *alias);
 int main_set_alias(char *alias_string, core_prog_data *data);
 void long_to_string(long number, char *string, int base);
 int _atoi(char *s);
+
 int str_comparingfunc(char *string1, char *string2, int number);
 int get_str_length(char *string);
 char *str_duplicate(char *string);
@@ -84,7 +85,7 @@ void expand_variables(core_prog_data *data);
 void expand_alias(core_prog_data *data);
 int buffer_add(char *buffer, char *str_to_add);
 
-void tokenizerfunc(core_prog_data *data);
+void tokenizerfuncn(core_prog_data *data);
 char *_strtok(char *line, char *delim);
 
 int _togetline(core_prog_data *data);
@@ -94,17 +95,15 @@ void init_data_func(core_prog_data *data, int arc, char *argv[], char **env);
 void system_info_func(char *prompt, core_prog_data *data);
 void ctrl_plus_c_handler(int opr UNUSED);
 
-
 /**
- * struct_builtins - Struct for the builtins,
- * @builtin: The name of the builtin,
- * @function: The associated function to be called for each builtin.
+ * struct builtins - struct for the builtins
+ * @builtin: the name of the builtin
+ * @function: the associated function to be called for each builtin
  */
 typedef struct builtins
 {
-	char *builtins;
+	char *builtin;
 	int (*function)(core_prog_data *data);
 } builtins;
 
 #endif /*SHELL_H*/
-

@@ -20,7 +20,7 @@ void system_info_func(char *prompt, core_prog_data *data)
 {
 	int error_code = 0, string_len = 0;
 
-	while (++(data->exec_counter))
+	while (++(data->exec_counter)) 
 	{
 		_print(prompt);
 		error_code = string_len = _togetline(data);
@@ -36,8 +36,7 @@ void system_info_func(char *prompt, core_prog_data *data)
 			expand_variables(data);
 			tokenizerfuncn(data);
 			if (data->tokens[0])
-			{ /if a text is given to prompt, execute */
-
+			{ /* if a text is given to prompt, execute */
 				error_code = execute(data);
 				if (error_code != 0)
 					_print_error(error_code, data);
@@ -61,38 +60,37 @@ void init_data_func(core_prog_data *data, int argc, char *argv[], char **env)
 	data->program_name = argv[0];
 	data->input_line = NULL;
 	data->command_name = NULL;
-		data->exec_counter = 0;
-			if (argc == 1)
-				data->file_descriptor = STDIN_FILENO;
-			else
-			{
-				data->file_descriptor = open(argv[1], O_RDONLY);
-				if (data->file_descriptor == -1)
-				{
-					_printit(data->program_name);
-					_printit(": 0: Can't open ");
-					_printit(argv[1]);
-					_printit("\n");
-					exit(127);
-				}
-			}
-}
-data->tokens = NULL;
-data->env = malloc(sizeof(char *) * 50);
-if (env)
-{
-	for (; env[i]; i++)
+	data->exec_counter = 0;
+	if (argc == 1)
+		data->file_descriptor = STDIN_FILENO;
+	else
 	{
-		data->env[i] = str_duplicate(env[i]);
+		data->file_descriptor = open(argv[1], O_RDONLY);
+		if (data->file_descriptor == -1)
+		{
+			_printit(data->program_name);
+			_printit(": 0: Can't open ");
+			_printit(argv[1]);
+			_printit("\n");
+			exit(127);
+		}
 	}
-}
-data->env[i] = NULL;
-env = data->env;
+	data->tokens = NULL;
+	data->env = malloc(sizeof(char *) * 50);
+	if (env)
+	{
+		for (; env[i]; i++)
+		{
+			data->env[i] = str_duplicate(env[i]);
+		}
+	}
+	data->env[i] = NULL;
+	env = data->env;
 
 	data->alias_list = malloc(sizeof(char *) * 20);
 	for (i = 0; i < 20; i++)
 	{
-	data->alias_list[i] = NULL;
+		data->alias_list[i] = NULL;
 	}
 }
 
@@ -101,7 +99,7 @@ env = data->env;
  * @argc: number of values received
  * @argv: values from the command line
  * @env: values received from the com line
- * Return: Returns zero on success.
+ * Return: Returns zero on succes.
  */
 int main(int argc, char *argv[], char *env[])
 {
@@ -121,13 +119,3 @@ int main(int argc, char *argv[], char *env[])
 	system_info_func(prompt, data);
 	return (0);
 }
-
-	
-
-
-
-
-
-
- 
-

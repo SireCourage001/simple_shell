@@ -20,7 +20,6 @@ void free_array_of_pointers(char **array)
 	}
 }
 
-
 /**
  * free_recurrent_data - free the fields needed each loop
  * @data: struct of the program's data
@@ -28,23 +27,23 @@ void free_array_of_pointers(char **array)
  */
 void free_recurrent_data(core_prog_data *data)
 {
-		if (data->tokens)
-			free_array_of_pointers(data->tokens);
-		if (data->input_line)
-			free(data->input_line);
-		if (data->command_name)
-			free(data->command_name);
+	if (data->tokens)
+		free_array_of_pointers(data->tokens);
+	if (data->input_line)
+		free(data->input_line);
+	if (data->command_name)
+		free(data->command_name);
 
-		data->input_line = NULL;
-		data->command_name = NULL;
-		data->tokens = NULL;
+	data->input_line = NULL;
+	data->command_name = NULL;
+	data->tokens = NULL;
 }
 
 /**
-* free_all_data - free all field of the data
-* @data: struct of the program's data
-* Return: Nothing
-*/
+ * free_all_data - free all field of the data
+ * @data: struct of the program's data
+ * Return: Nothing
+ */
 void free_all_data(core_prog_data *data)
 {
 	if (data->file_descriptor != 0)
@@ -56,8 +55,3 @@ void free_all_data(core_prog_data *data)
 	free_array_of_pointers(data->env);
 	free_array_of_pointers(data->alias_list);
 }
-
-
-
-
-

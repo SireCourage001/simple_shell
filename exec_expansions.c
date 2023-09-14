@@ -2,7 +2,7 @@
 /**
  * execute - execute a command with its entire path vars.
  * @data: a pointer to the program's data
- * Return: If success returns zero, otherwise, return -1.
+ * Return: If sucess returns zero, otherwise, return -1.
  */
 int execute(core_prog_data *data)
 {
@@ -45,9 +45,9 @@ int execute(core_prog_data *data)
 }
 
 /**
- * expand_alias - expand aliases
+ * expand_alias - expans aliases
  * @data: a pointer to a struct of the program's data
- * 
+ *
  * Return: nothing, but sets errno.
  */
 void expand_alias(core_prog_data *data)
@@ -64,20 +64,20 @@ void expand_alias(core_prog_data *data)
 	{
 		for (j = 0; m_line[i + j] && m_line[i + j] != ' '; j++)
 			expansion[j] = m_line[i + j];
-				expansion[j] = '\0';
+		expansion[j] = '\0';
 
-			temp = main_get_alias(data, expansion);
-			if (temp)
-			{
-				expansion[0] = '\0';
-				buffer_add(expansion, m_line + i + j);
-				m_line[i] = '\0';
-				buffer_add(m_line, temp);
-																			m_line[get_str_length(m_line)] = '\0';
-																			buffer_add(m_line, expansion);
-																			data_expanded = 1;
-			}
-			break;
+		temp = main_get_alias(data, expansion);
+		if (temp)
+		{
+			expansion[0] = '\0';
+			buffer_add(expansion, m_line + i + j);
+			m_line[i] = '\0';
+			buffer_add(m_line, temp);
+			m_line[get_str_length(m_line)] = '\0';
+			buffer_add(m_line, expansion);
+			data_expanded = 1;
+		}
+		break;
 	}
 	if (data_expanded)
 	{
@@ -85,10 +85,11 @@ void expand_alias(core_prog_data *data)
 		data->input_line = str_duplicate(m_line);
 	}
 }
+
 /**
  * expand_variables - expand variables
  * @data: a pointer to a struct of the program's data
- * 
+ *
  * Return: nothing, but sets errno.
  */
 void expand_variables(core_prog_data *data)
@@ -122,19 +123,19 @@ void expand_variables(core_prog_data *data)
 		{
 			for (j = 1; m_line[i + j] && m_line[i + j] != ' '; j++)
 				expansion[j - 1] = m_line[i + j];
-				temp = env_get_key(expansion, data);
-				m_line[i] = '\0', expansion[0] = '\0';
-				buffer_add(expansion, m_line + i + j);
-				temp ? buffer_add(m_line, temp) : 1;
-				buffer_add(m_line, expansion);
+			temp = env_get_key(expansion, data);
+			m_line[i] = '\0', expansion[0] = '\0';
+			buffer_add(expansion, m_line + i + j);
+			temp ? buffer_add(m_line, temp) : 1;
+			buffer_add(m_line, expansion);
 		}
-
 	if (!str_comparingfunc(data->input_line, m_line, 0))
 	{
 		free(data->input_line);
 		data->input_line = str_duplicate(m_line);
 	}
 }
+
 int buffer_add(char *buffer, char *str_tobe_added)
 {
 	int length_of_str, i;
@@ -147,7 +148,3 @@ int buffer_add(char *buffer, char *str_tobe_added)
 	buffer[length_of_str + i] = '\0';
 	return (length_of_str + i);
 }
-
-
-
-
