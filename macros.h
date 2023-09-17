@@ -24,7 +24,7 @@
 "	specified, gives detailed help on all commands matching BUILTIN_NAME,\n"\
 "	otherwise the list of help topics is printed BUILTIN_NAME list.\n"\
 "	Arguments:\n\n"\
-"	BUILTIN_NAME specifiying a help topic.\n\n"\
+"	BUILTIN_NAME specifying a help topic.\n\n"\
 "	cd\t[dir]\n"\
 "	exit\t[status]\n"\
 "	env\n"\
