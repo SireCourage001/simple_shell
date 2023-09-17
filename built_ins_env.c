@@ -23,7 +23,7 @@ int builtin_unset_env(core_prog_data *data)
 /**
  * builtin_set_env - ..
  * @data: struct for the program's data
- * Return: zero if sucess, or other number if its declared in the arguments
+ * Return: 0 if success, or other number if its declared in the arguments
  */
 int builtin_set_env(core_prog_data *data)
 {
@@ -45,7 +45,7 @@ int builtin_set_env(core_prog_data *data)
 /**
  * builtin_env - shows the environment where the shell runs
  * @data: struct for the program's data
- * Return: zero if sucess, or other number if its declared in the arguments
+ * Return: 0 if success, or other number if its declared in the arguments
  */
 int builtin_env(core_prog_data *data)
 {
