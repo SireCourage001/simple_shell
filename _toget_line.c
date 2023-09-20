@@ -10,7 +10,7 @@
 */
 int check_logic_ops(char *array_commands[], int i, char array_operators[])
 {
-	char *temp = NULL;
+	char *temp = NULL; 
 	int indj;
 
 	/* checks for the & char in the command line*/
